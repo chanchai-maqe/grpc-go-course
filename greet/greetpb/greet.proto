@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+package greetpb;
+
+//package name after compile
+//option go_package = "greetpb";
+
+
+message Greeting {
+    // the number after = is tag number which is unique 
+    // for each message
+
+    // string is type of sub message variable
+    string first_name = 1;
+    string last_name = 2;
+    string tag_id = 3;
+
+}
+
+
+message GreetRequest {
+    Greeting greeting = 1;
+}
+
+
+message GreetResponse {
+    string result = 1;
+}
+
+
+service GreetService{
+    // Unary API
+    // Format:
+    // input = SomethingRequest
+    // return / ouput = SomethingResponse
+    rpc Greet(GreetRequest) returns (GreetResponse) {}; 
+}
