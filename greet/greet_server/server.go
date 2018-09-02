@@ -18,11 +18,14 @@ type server struct{}
 	It means server recieved GreetRequest from client
 	and it has to return GreetResponse as &
 
-	Note: if function return type
+	Note: if function return type is pointer "*",
+	this particular function has to return
+	"&"
 
 */
 func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
 
+	fmt.Printf("Greet Function is invoke %v\n", req)
 	firstname := req.GetGreeting().GetFirstName()
 	lastname := req.GetGreeting().GetLastName()
 	tagid := req.GetGreeting().GetTagId()
