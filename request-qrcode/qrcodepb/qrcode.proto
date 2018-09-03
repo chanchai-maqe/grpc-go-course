@@ -1,0 +1,36 @@
+syntax = "proto3";
+
+package qrcodepb;
+
+
+message QRCode {
+    // the number after = is tag number which is unique 
+    // for each message
+
+    // string is type of sub message variable
+    string bizMchId = 1;
+    string mchId = 2;
+    string billerId = 3;
+    string rsapublickey = 4;
+    string apikey = 5; 
+
+}
+
+
+message qrcodeRequest {
+    QRCode qrcode = 1;
+}
+
+
+message qrcodeResponse {
+    string result = 1;
+}
+
+
+service qrcodeService{
+    // Unary API
+    // Format:
+    // input = SomethingRequest
+    // return / ouput = SomethingResponse
+    rpc Hi(qrcodeRequest) returns (qrcodeResponse) {}; 
+}

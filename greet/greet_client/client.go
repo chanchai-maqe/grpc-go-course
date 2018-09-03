@@ -58,6 +58,5 @@ func doUnary(c greetpb.GreetServiceClient) {
 	}
 
 	log.Printf("Response : %v", res.Result)
-	log.Println("SHOW RESULT:...")
-	//log.Printf("firstname: %v\nlastname: %v\ntagid: %v", res.Result.FirstName, res.Result.LastName, res.Result.TagId)
+
 }
